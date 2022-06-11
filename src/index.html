@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <title>Document</title>
   </head>
   <body class="font-body">
@@ -45,5 +49,49 @@
         />
       </div>
     </header>
+    <main>
+      <!-- Swiper Section -->
+      <section class="h-[300px] w-full mySwiper overflow-hidden">
+        <div class="swiper-wrapper h-full">
+          <div class="swiper-slide h-full">
+            <img
+              class="object-cover"
+              src="./images/image-product-1.jpg"
+              alt="image-product-1"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              class="object-cover"
+              src="./images/image-product-2.jpg"
+              alt="image-product-2"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              class="object-cover"
+              src="./images/image-product-3.jpg"
+              alt="image-product-3"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              class="object-cover"
+              src="./images/image-product-4.jpg"
+              alt="image-product-4"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+      });
+    </script>
   </body>
 </html>
