@@ -929,6 +929,19 @@ video {
   display: none !important;
 }
 
+.hover\:border-2:hover{
+  border-width: 2px;
+}
+
+.hover\:border-orange:hover{
+  --tw-border-opacity: 1;
+  border-color: hsl(26 100% 55% / var(--tw-border-opacity));
+}
+
+.hover\:opacity-75:hover{
+  opacity: 0.75;
+}
+
 @media (min-width: 640px){
   .sm\:h-\[300px\]{
     height: 300px;
@@ -938,6 +951,10 @@ video {
 @media (min-width: 1024px){
   .lg\:ml-5{
     margin-left: 1.25rem;
+  }
+
+  .lg\:block{
+    display: block;
   }
 
   .lg\:flex{
@@ -964,6 +981,10 @@ video {
     gap: 2.5rem;
   }
 
+  .lg\:p-10{
+    padding: 2.5rem;
+  }
+
   .lg\:py-10{
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -978,5 +999,10 @@ video {
 @media (min-width: 1280px){
   .xl\:h-\[50\%\]{
     height: 50%;
+  }
+
+  .xl\:bg-black{
+    --tw-bg-opacity: 1;
+    background-color: hsl(0 0% 0% / var(--tw-bg-opacity));
   }
 } 

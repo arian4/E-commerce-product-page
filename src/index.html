@@ -12,7 +12,7 @@
     <title>Fall Limited Edition Sneakers</title>
   </head>
   <body class="font-body" x-data="AppHandler()">
-    <header class="w-full flex items-center justify-between py-2 px-3">
+    <header class="w-full flex items-center justify-between py-2 px-3 lg:px-10">
       <div
         x-cloak
         :class="showHamburgerMenu ? 'block' : 'hidden'"
@@ -183,31 +183,44 @@
         </div>
       </section>
       <!-- product Images(Desktop) -->
-      <section class="p-10">
+      <section class="hidden lg:block lg:p-10">
         <img
+          id="product_img"
+          x-cloak
           class="h-[70%] xl:h-[50%] w-full rounded-2xl"
-          src="./images/image-product-1.jpg"
+          x-bind:src="`./images/${currentImage}`"
           alt="image-product-1"
         />
-        <div class="flex items-center justify-between mt-3">
+        <div
+          x-data="{thumbnails: ['image-product-1-thumbnail.jpg','image-product-2-thumbnail.jpg','image-product-3-thumbnail.jpg','image-product-4-thumbnail.jpg']}"
+          class="flex items-center justify-between mt-3"
+        >
           <img
-            class="w-24 h-24 rounded-lg"
-            src="./images/image-product-1-thumbnail.jpg"
+            class="w-24 h-24 rounded-lg hover:border-2 hover:border-orange hover:opacity-75"
+            x-cloak
+            x-bind:src="`./images/${thumbnails[0]}`"
+            @click="setProductImage(0)"
             alt="image-product-1-thumbnail"
           />
           <img
-            class="w-24 h-24 rounded-lg"
-            src="./images/image-product-2-thumbnail.jpg"
+            class="w-24 h-24 rounded-lg hover:border-2 hover:border-orange hover:opacity-75"
+            x-cloak
+            x-bind:src="`./images/${thumbnails[1]}`"
+            @click="setProductImage(1)"
             alt="image-product-2-thumbnail"
           />
           <img
-            class="w-24 h-24 rounded-lg"
-            src="./images/image-product-3-thumbnail.jpg"
+            class="w-24 h-24 rounded-lg hover:border-2 hover:border-orange hover:opacity-75"
+            x-cloak
+            x-bind:src="`./images/${thumbnails[2]}`"
+            @click="setProductImage(2)"
             alt="image-product-3-thumbnail"
           />
           <img
-            class="w-24 h-24 rounded-lg"
-            src="./images/image-product-4-thumbnail.jpg"
+            class="w-24 h-24 rounded-lg hover:border-2 hover:border-orange hover:opacity-75"
+            x-cloak
+            x-bind:src="`./images/${thumbnails[3]}`"
+            @click="setProductImage(3)"
             alt="image-product-4-thumbnail"
           />
         </div>
@@ -300,6 +313,13 @@
           IsCartEmpty: true,
           amount: "$ 0.00",
           showHamburgerMenu: false,
+          productImages: [
+            "image-product-1.jpg",
+            "image-product-2.jpg",
+            "image-product-3.jpg",
+            "image-product-4.jpg",
+          ],
+          currentImage: "image-product-1.jpg",
           decQuantity() {
             if (this.quantity > 0) {
               this.quantity -= 1;
@@ -315,6 +335,9 @@
           },
           calcAmount() {
             return (this.amount = `$${this.quantity * 125}.00`);
+          },
+          setProductImage(activeImg) {
+            this.currentImage = this.productImages[activeImg];
           },
         };
       }
